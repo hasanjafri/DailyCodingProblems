@@ -13,7 +13,7 @@ class tdIterator:
                     return num
                 else:
                     self.arrayList.remove(self.arrayList[0])
-                    self.next()
+                    return self.next()
         except IndexError:
             raise
 
@@ -33,4 +33,5 @@ if __name__ == "__main__":
     import pdb; pdb.set_trace()
     for y in range(7):
         print(td_iterator.next())
+    
     
