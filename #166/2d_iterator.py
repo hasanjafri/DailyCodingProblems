@@ -15,23 +15,24 @@ class tdIterator:
                     self.arrayList.remove(self.arrayList[0])
                     return self.next()
         except IndexError:
+            import pdb; pdb.set_trace()
             raise
 
     
-    def has_next(self):
+    def has_next(self, index=0):
         try:
-            if isinstance(self.arrayList[0], list):
-                if len(self.arrayList[0]) > 0:
+            if isinstance(self.arrayList[index], list):
+                if len(self.arrayList[index]) > 0:
                     return True
                 else:
-                    return False
+                    return self.has_next(index+1)
         except IndexError:
-            raise
+            return False
 
 if __name__ == "__main__":
     td_iterator = tdIterator([[1, 2], [3], [], [4, 5, 6]])
-    import pdb; pdb.set_trace()
     for y in range(7):
+        print(td_iterator.has_next())
         print(td_iterator.next())
     
     
