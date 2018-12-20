@@ -15,7 +15,6 @@ class tdIterator:
                     self.arrayList.remove(self.arrayList[0])
                     return self.next()
         except IndexError:
-            import pdb; pdb.set_trace()
             raise
 
     
