@@ -37,3 +37,4 @@ def get_alphabetical_column_id(cid):
 if __name__ == "__main__":
     print(get_alphabetical_column_id(1))
     print(get_alphabetical_column_id(27))
+    print(get_alphabetical_column_id(67))
