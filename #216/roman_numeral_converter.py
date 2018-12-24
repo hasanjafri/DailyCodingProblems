@@ -11,17 +11,19 @@ numerals = {
 def roman_numeral_converter(rn):
     value = 0
     rnLength = len(rn)
-    for char in range(rnLength):
+    indexes = set([])
+    
+    for char in (x for x in range(rnLength) if not x in indexes):
         if (char+1) == rnLength:
             value += numerals[rn[char]]
-            print(value)
         else:
             if numerals[rn[char]] < numerals[rn[char+1]]:
                 value += (numerals[rn[char+1]] - numerals[rn[char]])
-                print(value)
+                indexes.add(char)
+                indexes.add(char+1)
             else:
                 value += numerals[rn[char]]
-                print(value)
+                indexes.add(char)
     return value
 
 if __name__ == "__main__":
